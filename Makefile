@@ -196,7 +196,7 @@ ifneq (,$(findstring $(platform),Vanilla Linux-ppc32))
 
   # Continuing with the non-Darwin settings...
   objdir = Build/Obj/$(osdir)/$(build_dir)/
-  compiler = ${CROSS_COMPILE}gcc -o $(objdir)
+  compiler = ${CROSS_COMPILE}${CC} -o $(objdir)
   link = $(version_specific_library_path) ${CROSS_COMPILE}g++ $(platform_linkflags)
   ar = $(version_specific_library_path) ${CROSS_COMPILE}ar rc $(objdir)
 endif
@@ -213,8 +213,8 @@ ifeq ($(platform), Core-ppc32)
     osbuilddir = Core-ppc32
     objdir = Build/Obj/$(osbuilddir)/$(build_dir)/
     native_only = yes
-    compiler = ${CROSS_COMPILE}gcc -o $(objdir)
-    link = ${CROSS_COMPILE}g++ $(platform_linkflags)
+    compiler = ${CROSS_COMPILE}${CC} -o $(objdir)
+    link = ${CROSS_COMPILE}${CXX} $(platform_linkflags)
     ar = ${CROSS_COMPILE}ar rc $(objdir)
 endif
 
@@ -230,8 +230,8 @@ ifeq ($(platform), Core-armv5)
     osbuilddir = Core-armv5
     objdir = Build/Obj/$(osbuilddir)/$(build_dir)/
     native_only = yes
-    compiler = ${CROSS_COMPILE}gcc -o $(objdir)
-    link = ${CROSS_COMPILE}g++ $(platform_linkflags)
+    compiler = ${CROSS_COMPILE}${CC} -o $(objdir)
+    link = ${CROSS_COMPILE}${CXX} $(platform_linkflags)
     ar = ${CROSS_COMPILE}ar rc $(objdir)
 endif
 
